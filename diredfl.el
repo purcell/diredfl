@@ -341,27 +341,19 @@ In particular, inode number, number of hard links, and file size."
    ) "2nd level of Dired highlighting.  See `font-lock-maximum-decoration'.")
 
 
-(defun diredfl--set-up-font-locking ()
-  "Add this to `dired-mode-hook' to provide for second-level fontifying."
-  (set (make-local-variable 'font-lock-defaults)
-       ;; Two levels.  Use 3-element list, since it is standard to have one more
-       ;; than the number of levels.  This is necessary for it to work with
-       ;; `font(-lock)-menus.el'.
-       '((dired-font-lock-keywords
-          dired-font-lock-keywords
-          diredfl-font-lock-keywords-1)
-         t nil nil beginning-of-line))
-  ;; Refresh `font-lock-keywords' from `font-lock-defaults'
-  (when (fboundp 'font-lock-refresh-defaults) (font-lock-refresh-defaults)))
-
 ;;;###autoload
 (define-minor-mode diredfl-mode
   "Enable additional font locking in `dired-mode'."
   nil
   :lighter ""
-  (if diredfl-mode
-      (diredfl--set-up-font-locking)
-    (message "Disabling `diredfl-mode' is not yet implemented.")))
+  (setq font-lock-defaults
+        (if diredfl-mode
+            '((dired-font-lock-keywords
+               dired-font-lock-keywords
+               diredfl-font-lock-keywords-1)
+              t nil nil beginning-of-line)
+          '(dired-font-lock-keywords t nil nil beginning-of-line)))
+  (font-lock-refresh-defaults))
 
 
 
