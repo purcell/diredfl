@@ -8,6 +8,8 @@ This is adapted from the extra font lock rules provided by Drew Adams'
 `dired+` package, but published via a modern means, and with support
 for older Emacsen removed.
 
+![Screenshot](screenshot.png)
+
 ## Installation
 
 If you're an Emacs 24 user or you have a recent version of
