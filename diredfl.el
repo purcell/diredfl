@@ -179,21 +179,12 @@ This means the `.' plus the file extension.  Example: `.elc'."
   :group 'diredfl)
 (defvar diredfl-link-priv 'diredfl-link-priv)
 
-(defface diredfl-mode-line-marked
-  '((t (:foreground "DarkViolet")))
-  "*Face for marked number in mode line `mode-name' for Dired buffers."
-  :group 'diredfl)
-
-(defface diredfl-mode-line-flagged
-  '((t (:foreground "Red")))
-  "*Face for flagged number in mode line `mode-name' for Dired buffers."
-  :group 'diredfl)
-
 (defface diredfl-no-priv
   '((((background dark)) (:background "#2C2C2C2C2C2C")) ; ~ dark gray
     (t                   (:background "LightGray")))
   "*Face used for no privilege indicator (-) in Dired buffers."
   :group 'diredfl)
+(defvar diredfl-no-priv 'diredfl-no-priv)
 
 (defface diredfl-number
   '((((background dark)) (:foreground "#FFFFFFFF7474")) ; ~ light yellow
@@ -201,24 +192,28 @@ This means the `.' plus the file extension.  Example: `.elc'."
   "*Face used for numerical fields in Dired buffers.
 In particular, inode number, number of hard links, and file size."
   :group 'diredfl)
+(defvar diredfl-number 'diredfl-number)
 
 (defface diredfl-other-priv
   '((((background dark)) (:background "#111117175555")) ; ~ dark blue
     (t                   (:background "PaleGoldenrod")))
   "*Face used for l,s,S,t,T privilege indicators in Dired buffers."
   :group 'diredfl)
+(defvar diredfl-other-priv 'diredfl-other-priv)
 
 (defface diredfl-rare-priv
   '((((background dark)) (:foreground "Green" :background "#FFFF00008080")) ; ~ hot pink
     (t                   (:foreground "Magenta" :background "SpringGreen")))
   "*Face used for rare privilege indicators (b,c,s,m,p,S) in Dired buffers."
   :group 'diredfl)
+(defvar diredfl-rare-priv 'diredfl-rare-priv)
 
 (defface diredfl-read-priv
   '((((background dark)) (:background "#999932325555")) ; ~ burgundy / dark magenta
     (t                   (:background "MediumAquamarine")))
   "*Face used for read privilege indicator (w) in Dired buffers."
   :group 'diredfl)
+(defvar diredfl-read-priv 'diredfl-read-priv)
 
 (defface diredfl-symlink
   '((((background dark)) (:foreground "#00007373FFFF")) ; ~ blue
@@ -231,12 +226,14 @@ In particular, inode number, number of hard links, and file size."
     (t                   (:background "#CD73FBEECD73"))) ; Very pale green
   "*Face used in Dired for names of files that are autofile bookmarks."
   :group 'diredfl)
+(defvar diredfl-tagged-autofile-name 'diredfl-tagged-autofile-name)
 
 (defface diredfl-write-priv
   '((((background dark)) (:background "#25258F8F2929")) ; ~ dark green
     (t                   (:background "Orchid")))
   "*Face used for write privilege indicator (w) in Dired buffers."
   :group 'diredfl)
+(defvar diredfl-write-priv 'diredfl-write-priv)
 
 ;;; Define second level of fontifying.
 (defvar diredfl-font-lock-keywords-1
@@ -277,7 +274,7 @@ In particular, inode number, number of hard links, and file size."
 
    ;; Inode, hard-links, & file size (. and , are for the decimal point, depending on locale)
    ;; See comment for `directory-listing-before-filename-regexp' in `files.el' or `files+.el'.
-   '("\\(\\([0-9]+\\([.,][0-9]+\\)?\\)[BkKMGTPEZY]?[ /]?\\)" 1 diredfl-number)
+   '("\\(\\([0-9]+\\([.,][0-9]+\\)?\\)[BkKMGTPEZY]?[ /]?\\)" 1 'diredfl-number)
 
    ;; Directory names - exclude d:/..., Windows drive letter in a dir heading.
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\(d\\)[^:]")
