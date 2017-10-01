@@ -17,12 +17,8 @@ If you're an Emacs 24 user or you have a recent version of
 [MELPA](http://melpa.org) repository. The version of `diredfl` there
 will always be up-to-date.
 
-Enable `diredfl-mode` in `dired-mode` by adding code such as the
-following to your emacs startup file:
-
-``` lisp
-(add-hook 'dired-mode-hook 'diredfl-mode)
-```
+Enable `diredfl-mode` in all `dired-mode` buffers by calling or
+customising `diredfl-global-mode` as desired.
 
 ## About
 

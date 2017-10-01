@@ -28,7 +28,11 @@
 ;; Adams' `dired+' package, but published via a modern means, and with
 ;; support for older Emacsen removed.
 
-;; (add-hook 'dired-mode-hook 'diredfl-mode)
+;; Enable in all dired buffers by calling or customising `diredfl-global-mode'.
+
+;; Alternatively:
+
+;;     (add-hook 'dired-mode-hook 'diredfl-mode)
 
 ;;; Code:
 
@@ -355,6 +359,11 @@ In particular, inode number, number of hard links, and file size."
           '(dired-font-lock-keywords t nil nil beginning-of-line)))
   (font-lock-refresh-defaults))
 
+;;;###autoload
+(define-globalized-minor-mode diredfl-global-mode diredfl-mode
+  (lambda ()
+    (when (derived-mode-p 'dired-mode)
+      (diredfl-mode))))
 
 
 (provide 'diredfl)
