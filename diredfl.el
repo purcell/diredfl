@@ -363,7 +363,8 @@ In particular, inode number, number of hard links, and file size."
 (define-globalized-minor-mode diredfl-global-mode diredfl-mode
   (lambda ()
     (when (derived-mode-p 'dired-mode)
-      (diredfl-mode))))
+      (diredfl-mode)))
+  :require 'diredfl)
 
 
 (provide 'diredfl)
