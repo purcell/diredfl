@@ -220,6 +220,7 @@ In particular, inode number, number of hard links, and file size."
     (t                   (:foreground "DarkOrange")))
   "*Face used for symbolic links in Dired buffers."
   :group 'diredfl)
+(defvar diredfl-symlink 'diredfl-symlink)
 
 (defface diredfl-tagged-autofile-name
   '((((background dark)) (:background "#328C0411328C")) ; Very dark magenta
