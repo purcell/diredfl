@@ -237,7 +237,7 @@ In particular, inode number, number of hard links, and file size."
 (defvar diredfl-write-priv 'diredfl-write-priv)
 
 ;;; Define second level of fontifying.
-(defvar diredfl-font-lock-keywords-1
+(defconst diredfl-font-lock-keywords-1
   (list
    '("^  \\(.+:\\)$" 1 diredfl-dir-heading) ; Directory headers
    '("^  wildcard.*$" 0 'default)       ; Override others, e.g. `l' for `diredfl-other-priv'.
