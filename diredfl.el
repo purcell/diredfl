@@ -275,7 +275,7 @@ In particular, inode number, number of hard links, and file size."
 
    ;; Inode, hard-links, & file size (. and , are for the decimal point, depending on locale)
    ;; See comment for `directory-listing-before-filename-regexp' in `files.el' or `files+.el'.
-   '("\\(\\([0-9]+\\([.,][0-9]+\\)?\\)[BkKMGTPEZY]?[ /]?\\)" 1 'diredfl-number)
+   '("\\_<\\(\\([0-9]+\\([.,][0-9]+\\)?\\)[BkKMGTPEZY]?[ /]?\\)" 1 'diredfl-number)
 
    ;; Directory names - exclude d:/..., Windows drive letter in a dir heading.
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\(d\\)[^:]")
