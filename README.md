@@ -20,6 +20,12 @@ will always be up-to-date.
 Enable `diredfl-mode` in all `dired-mode` buffers by calling or
 customising `diredfl-global-mode` as desired.
 
+## Related packages
+
+[dired-hacks](https://github.com/Fuco1/dired-hacks#dired-rainbow) also
+contains some enhanced font-lock support for `dired`, but with
+different goals from this package.
+
 ## About
 
 Author: Steve Purcell <steve at sanityinc dot com>
