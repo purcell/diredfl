@@ -47,6 +47,14 @@
   "*List of compressed-file extensions, for highlighting."
   :type '(repeat string) :group 'diredfl)
 
+(defcustom diredfl-ignore-flag t
+  "*Non-nil means to font-lock lines ending in an ignored extension using
+`diredfl-ignored-file-name'.
+
+Ignored extensions are those listed in `dired-omit-extensions' if bound and
+non-nil, or `completion-ignored-extensions' otherwise."
+  :type 'boolean :group 'diredfl)
+
 (defcustom diredfl-ignore-compressed-flag t
   "*Non-nil means to font-lock names of compressed files as ignored files.
 This applies to filenames whose extensions are in
@@ -259,13 +267,16 @@ In particular, inode number, number of hard links, and file size."
      ("\\(.+\\)$" nil nil (0 diredfl-file-name keep t))) ; Filename (not a compressed file)
 
    ;; Files to ignore
-   (list (concat "^  \\(.*\\("
-                 (mapconcat #'regexp-quote (or (and (boundp 'dired-omit-extensions)  dired-omit-extensions)
-                                               completion-ignored-extensions)
-                            "[*]?\\|")
-                 (and diredfl-ignore-compressed-flag
-                      (concat "\\|" (mapconcat #'regexp-quote diredfl-compressed-extensions "[*]?\\|")))
-                 "[*]?\\)\\)$") ; Allow for executable flag (*).
+   (list (if diredfl-ignore-flag
+	     (concat "^  \\(.*\\("
+                     (mapconcat #'regexp-quote (or (and (boundp 'dired-omit-extensions)  dired-omit-extensions)
+						   completion-ignored-extensions)
+				"[*]?\\|")
+                     (and diredfl-ignore-compressed-flag
+			  (concat "\\|" (mapconcat #'regexp-quote diredfl-compressed-extensions "[*]?\\|")))
+                     "[*]?\\)\\)$") ; Allow for executable flag (*).
+	   "$no match" ;; Quick never-matching regex.
+	   )
          1 diredfl-ignored-file-name t)
 
    ;; Compressed-file (suffix)
