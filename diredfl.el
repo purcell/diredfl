@@ -236,6 +236,24 @@ In particular, inode number, number of hard links, and file size."
   :group 'diredfl)
 (defvar diredfl-write-priv 'diredfl-write-priv)
 
+(defun diredfl-match-ignored-extensions (limit)
+  "A matcher of ignored filename extensions for use in `font-lock-keywords'.
+LIMIT is the extent of the search."
+  (let ((ignored-extensions
+         (append (if (boundp 'dired-omit-extensions)
+                     dired-omit-extensions
+                   completion-ignored-extensions)
+                 (when diredfl-ignore-compressed-flag
+                   diredfl-compressed-extensions))))
+    (when ignored-extensions
+      (re-search-forward
+       (concat "^  \\(.*"
+               (regexp-opt ignored-extensions)
+               ;; Optional executable flag
+               "[*]?\\)$")
+       limit
+       t))))
+
 ;;; Define second level of fontifying.
 (defconst diredfl-font-lock-keywords-1
   (list
@@ -259,14 +277,7 @@ In particular, inode number, number of hard links, and file size."
      ("\\(.+\\)$" nil nil (0 diredfl-file-name keep t))) ; Filename (not a compressed file)
 
    ;; Files to ignore
-   (list (concat "^  \\(.*\\("
-                 (mapconcat #'regexp-quote (or (and (boundp 'dired-omit-extensions)  dired-omit-extensions)
-                                               completion-ignored-extensions)
-                            "[*]?\\|")
-                 (and diredfl-ignore-compressed-flag
-                      (concat "\\|" (mapconcat #'regexp-quote diredfl-compressed-extensions "[*]?\\|")))
-                 "[*]?\\)\\)$") ; Allow for executable flag (*).
-         1 diredfl-ignored-file-name t)
+   '(diredfl-match-ignored-extensions 1 diredfl-ignored-file-name t)
 
    ;; Compressed-file (suffix)
    (list (concat "\\(" (concat (funcall #'regexp-opt diredfl-compressed-extensions) "\\)[*]?$"))
