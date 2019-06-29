@@ -258,22 +258,22 @@ LIMIT is the extent of the search."
 (defconst diredfl-font-lock-keywords-1
   (list
    '("^  \\(.+:\\)$" 1 diredfl-dir-heading) ; Directory headers
-   '("^  wildcard.*$" 0 'default)       ; Override others, e.g. `l' for `diredfl-other-priv'.
-   '("^  (No match).*$" 0 'default)     ; Override others, e.g. `t' for `diredfl-other-priv'.
+   '("^  wildcard.*$" 0 'default) ; Override others, e.g. `l' for `diredfl-other-priv'.
+   '("^  (No match).*$" 0 'default) ; Override others, e.g. `t' for `diredfl-other-priv'.
    '("[^ .]\\(\\.[^. /]+\\)$" 1 diredfl-file-suffix) ; Suffix, including `.'.
-   '("\\([^ ]+\\) -> .+$" 1 diredfl-symlink) ; Symbolic links
+   '("\\([^ ]+\\) -> .+$" 1 diredfl-symlink)         ; Symbolic links
 
    ;; 1) Date/time and 2) filename w/o suffix.
    ;;    This is a bear, and it is fragile - Emacs can change `dired-move-to-filename-regexp'.
    `(,dired-move-to-filename-regexp
-     (7 diredfl-date-time t t)         ; Date/time, locale (western or eastern)
-     (2 diredfl-date-time t t)         ; Date/time, ISO
+     (7 diredfl-date-time t t) ; Date/time, locale (western or eastern)
+     (2 diredfl-date-time t t) ; Date/time, ISO
      (,(concat "\\(.+\\)\\(" (concat (funcall #'regexp-opt diredfl-compressed-extensions)
                                      "\\)[*]?$"))
       nil nil (0 diredfl-compressed-file-name keep t))) ; Compressed-file suffix
    `(,dired-move-to-filename-regexp
-     (7 diredfl-date-time t t)         ; Date/time, locale (western or eastern)
-     (2 diredfl-date-time t t)         ; Date/time, ISO
+     (7 diredfl-date-time t t) ; Date/time, locale (western or eastern)
+     (2 diredfl-date-time t t) ; Date/time, ISO
      ("\\(.+\\)$" nil nil (0 diredfl-file-name keep t))) ; Filename (not a compressed file)
 
    ;; Files to ignore
