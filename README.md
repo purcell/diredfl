@@ -34,7 +34,13 @@ Homepage: https://github.com/purcell/diredfl
 
 <hr>
 
-[![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://uk.linkedin.com/in/stevepurcell)
+Author links:
 
-[Steve Purcell's blog](http://www.sanityinc.com/) // [@sanityinc on Twitter](https://twitter.com/sanityinc)
+[💝 Support this project and my other Open Source work](https://www.patreon.com/sanityinc)
+
+[💼 LinkedIn profile](https://uk.linkedin.com/in/stevepurcell)
+
+[✍ sanityinc.com](http://www.sanityinc.com/)
+
+[🐦 @sanityinc](https://twitter.com/sanityinc)
 
