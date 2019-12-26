@@ -1,6 +1,7 @@
 [![Melpa Status](http://melpa.org/packages/diredfl-badge.svg)](http://melpa.org/#/diredfl)
 [![Melpa Stable Status](http://stable.melpa.org/packages/diredfl-badge.svg)](http://stable.melpa.org/#/diredfl)
 <a href="https://www.patreon.com/sanityinc"><img alt="Support me" src="https://img.shields.io/badge/Support%20Me-%F0%9F%92%97-ff69b4.svg"></a>
+[![Build Status](https://travis-ci.org/purcell/diredfl.svg?branch=master)](https://travis-ci.org/purcell/diredfl)
 
 # Extra font lock rules for a more colourful dired
 
