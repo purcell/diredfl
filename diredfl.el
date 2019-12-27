@@ -349,9 +349,8 @@ LIMIT is the extent of the search."
    (list (concat "^\\([" (char-to-string dired-del-marker) "].*$\\)") ; Deletion-flagged lines
          '(1 diredfl-deletion-file-name prepend))
    (list (concat "^\\([" (char-to-string dired-del-marker) "]\\)") ; Deletion flags (D)
-         '(1 diredfl-deletion prepend))
-
-   ) "2nd level of Dired highlighting.  See `font-lock-maximum-decoration'.")
+         '(1 diredfl-deletion prepend)))
+  "2nd level of Dired highlighting.  See `font-lock-maximum-decoration'.")
 
 
 ;;;###autoload
