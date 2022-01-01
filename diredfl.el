@@ -28,7 +28,7 @@
 ;; Adams' `dired+' package, but published via a modern means, and with
 ;; support for older Emacsen removed.
 
-;; Enable in all dired buffers by calling or customising `diredfl-global-mode'.
+;; Enable in all Dired buffers by calling or customising `diredfl-global-mode'.
 
 ;; Alternatively:
 
@@ -39,7 +39,7 @@
 (require 'dired)
 
 (defgroup diredfl ()
-  "Extra font lock rules for a more colourful dired."
+  "Extra font lock rules for a more colourful Dired."
   :group 'dired)
 
 (defcustom diredfl-compressed-extensions '(".tar" ".taz" ".tgz" ".arj" ".lzh"
@@ -356,8 +356,7 @@ LIMIT is the extent of the search."
 ;;;###autoload
 (define-minor-mode diredfl-mode
   "Enable additional font locking in `dired-mode'."
-  nil
-  :lighter ""
+  :global nil
   (setq font-lock-defaults
         (if diredfl-mode
             '((dired-font-lock-keywords
