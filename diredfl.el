@@ -335,6 +335,8 @@ LIMIT is the extent of the search."
          '(1 diredfl-no-priv keep))
    (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]\\([-rwxlsStT]\\)........") ; u -
          '(1 diredfl-no-priv keep))
+   (list (concat dired-re-maybe-mark dired-re-inode-size "\\(-\\)")
+         '(1 diredfl-no-priv keep))
 
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\([bcsmpS]\\)") ; (rare)
          '(1 diredfl-rare-priv keep))
