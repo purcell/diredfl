@@ -21,6 +21,28 @@ will always be up-to-date.
 Enable `diredfl-mode` in all `dired-mode` buffers by calling or
 customising `diredfl-global-mode` as desired.
 
+## Customization
+
+The colors can be easily customized. For example the following changes the colors to roughly mimic the `exa` shell command color palette:
+
+```elisp
+(setq
+   diredfl-number     '(:foreground "#54A248")
+   diredfl-file-name  '(:foreground "White")
+   diredfl-dir-name   '(:foreground "#3DAEE9")
+   diredfl-symlink    '(:foreground "#16A085" :background "#3A3B32")
+   diredfl-date-time  '(:foreground "#1D95EC")
+   diredfl-dir-priv   '(:foreground "#3DAEE9")
+   diredfl-read-priv  '(:foreground "#FDBC4B")
+   diredfl-write-priv '(:foreground "#B0362B")
+   diredfl-exec-priv  '(:foreground "#55A649")
+   diredfl-link-priv  '(:foreground "#16A085")
+   diredfl-ignore-compressed-flag nil
+   diredfl-compressed-file-suffix  'diredfl-file-suffix
+   diredfl-compressed-file-name  '(:foreground "#C0392B")
+)  
+```
+
 ## Related packages
 
 [dired-hacks](https://github.com/Fuco1/dired-hacks#dired-rainbow) also
