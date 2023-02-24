@@ -341,7 +341,7 @@ LIMIT is the extent of the search."
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\([bcsmpS]\\)") ; (rare)
          '(1 diredfl-rare-priv keep))
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\(l\\)[-rwxlsStT]") ; l
-         '(1 diredfl-rare-priv keep))
+         '(1 diredfl-link-priv keep))
 
    (list (concat "^\\([^\n " (char-to-string dired-del-marker) "].*$\\)")
          '(1 diredfl-flag-mark-line prepend))                          ; Flag/mark lines
