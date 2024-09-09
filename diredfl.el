@@ -265,13 +265,13 @@ LIMIT is the extent of the search."
 
    ;; 1) Date/time and 2) filename w/o suffix.
    ;;    This is a bear, and it is fragile - Emacs can change `dired-move-to-filename-regexp'.
-   `(,dired-move-to-filename-regexp
+   `(,directory-listing-before-filename-regexp
      (7 diredfl-date-time t t) ; Date/time, locale (western or eastern)
      (2 diredfl-date-time t t) ; Date/time, ISO
      (,(concat "\\(.+\\)\\(" (concat (funcall #'regexp-opt diredfl-compressed-extensions)
                                      "\\)[*]?$"))
       nil nil (0 diredfl-compressed-file-name keep t))) ; Compressed-file suffix
-   `(,dired-move-to-filename-regexp
+   `(,directory-listing-before-filename-regexp
      (7 diredfl-date-time t t) ; Date/time, locale (western or eastern)
      (2 diredfl-date-time t t) ; Date/time, ISO
      ("\\(.+\\)$" nil nil (0 diredfl-file-name keep t))) ; Filename (not a compressed file)
