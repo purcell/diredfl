@@ -292,48 +292,48 @@ LIMIT is the extent of the search."
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\(d\\)[^:]")
          '(1 diredfl-dir-priv t) '(".+" (dired-move-to-filename) nil (0 diredfl-dir-name t)))
 
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]........\\(x\\)") ; o x
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]........\\(x\\)") ; o x
          '(1 diredfl-exec-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]........\\([lsStT]\\)") ; o misc
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]........\\([lsStT]\\)") ; o misc
          '(1 diredfl-other-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].......\\(w\\).") ; o w
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].......\\(w\\).") ; o w
          '(1 diredfl-write-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]......\\(r\\)..") ; o r
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]......\\(r\\)..") ; o r
          '(1 diredfl-read-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].....\\(x\\)...") ; g x
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].....\\(x\\)...") ; g x
          '(1 diredfl-exec-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].....\\([lsStT]\\)...") ; g misc
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].....\\([lsStT]\\)...") ; g misc
          '(1 diredfl-other-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]....\\(w\\)....") ; g w
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]....\\(w\\)....") ; g w
          '(1 diredfl-write-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]...\\(r\\).....") ; g r
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]...\\(r\\).....") ; g r
          '(1 diredfl-read-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]..\\(x\\)...") ; u x
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]..\\(x\\)...") ; u x
          '(1 diredfl-exec-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]..\\([lsStT]\\)...") ; u misc
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]..\\([lsStT]\\)...") ; u misc
          '(1 diredfl-other-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].\\(w\\)....") ; u w
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].\\(w\\)....") ; u w
          '(1 diredfl-write-priv))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]\\(r\\).....") ; u r
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]\\(r\\).....") ; u r
          '(1 diredfl-read-priv))
 
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]........\\([-rwxlsStT]\\)") ; o -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]........\\([-rwxlsStT]\\)") ; o -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].......\\([-rwxlsStT]\\).") ; g -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].......\\([-rwxlsStT]\\).") ; g -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]......\\([-rwxlsStT]\\)..") ; u -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]......\\([-rwxlsStT]\\)..") ; u -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].....\\([-rwxlsStT]\\)...") ; o -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].....\\([-rwxlsStT]\\)...") ; o -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]....\\([-rwxlsStT]\\)....") ; g -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]....\\([-rwxlsStT]\\)....") ; g -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]...\\([-rwxlsStT]\\).....") ; u -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]...\\([-rwxlsStT]\\).....") ; u -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]..\\([-rwxlsStT]\\)......") ; o -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]..\\([-rwxlsStT]\\)......") ; o -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl].\\([-rwxlsStT]\\).......") ; g -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps].\\([-rwxlsStT]\\).......") ; g -
          '(1 diredfl-no-priv keep))
-   (list (concat dired-re-maybe-mark dired-re-inode-size "[-dl]\\([-rwxlsStT]\\)........") ; u -
+   (list (concat dired-re-maybe-mark dired-re-inode-size "[-bcdlps]\\([-rwxlsStT]\\)........") ; u -
          '(1 diredfl-no-priv keep))
    (list (concat dired-re-maybe-mark dired-re-inode-size "\\(-\\)")
          '(1 diredfl-no-priv keep))
