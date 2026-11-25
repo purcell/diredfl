@@ -261,7 +261,8 @@ LIMIT is the extent of the search."
    '("^  wildcard.*$" 0 'default) ; Override others, e.g. `l' for `diredfl-other-priv'.
    '("^  (No match).*$" 0 'default) ; Override others, e.g. `t' for `diredfl-other-priv'.
    '("[^ .]\\(\\.[^. /]+\\)$" 1 diredfl-file-suffix) ; Suffix, including `.'.
-   '("\\([^ ]+\\) -> .+$" 1 diredfl-symlink)         ; Symbolic links
+   (list dired-re-sym                                 ; Symbolic links
+         '("\\(.+?\\) -> " (dired-move-to-filename) nil (1 diredfl-symlink)))
 
    ;; 1) Date/time and 2) filename w/o suffix.
    ;;    This is a bear, and it is fragile - Emacs can change `dired-move-to-filename-regexp'.
